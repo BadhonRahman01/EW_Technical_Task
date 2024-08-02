@@ -5,6 +5,7 @@ import PreferencesPage from './pages/PreferencesPage';
 import SubscriptionsPage from './pages/SubscriptionsPage';
 import UsersPage from './pages/UsersPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 
 const App = () => (

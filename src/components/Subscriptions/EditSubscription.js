@@ -34,13 +34,14 @@ const EditSubscription = ({ subscription, onEdit, onCancel }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const updatedSubscription = {
+      id: subscription.id,
       preference_id: preferenceId,
       enabled,
       user_id: userId,
     };
     try {
-      await updateSubscription(subscription.id, updatedSubscription);
-      if (onEdit) {
+      const { error } = await updateSubscription(subscription.id, updatedSubscription);
+      if (!error && onEdit) {
         onEdit(updatedSubscription);
       }
     } catch (error) {
@@ -50,6 +51,7 @@ const EditSubscription = ({ subscription, onEdit, onCancel }) => {
 
   return (
     <div className="container mt-4">
+      <h5 className="display-5">Edit Subscription (ID={subscription.id})</h5>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="preferenceSelect">Preference</label>
@@ -91,7 +93,7 @@ const EditSubscription = ({ subscription, onEdit, onCancel }) => {
           />
           <label className="form-check-label" htmlFor="enabledCheck">Enabled</label>
         </div>
-        <button type="submit" className="btn btn-primary ">Update Subscription</button>
+        <button type="submit" className="btn btn-primary">Update Subscription</button>
         <button type="button" className="btn btn-danger m-2" onClick={onCancel}>Cancel</button>
       </form>
     </div>
