@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 import PreferenceList from '../components/Preferences/PreferenceList';
 import AddPreference from '../components/Preferences/AddPreference';
 import EditPreference from '../components/Preferences/EditPreference';
@@ -41,11 +42,24 @@ const PreferencesPage = () => {
   };
 
   const handleDelete = async (id) => {
-    try {
-      await deletePreference(id);
-      fetchPreferences(); // Refresh preferences list after deleting
-    } catch (error) {
-      console.error('Error deleting preference:', error);
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you really want to delete this preference?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    });
+
+    if (result.isConfirmed) {
+      const { error } = await deletePreference(id);
+      if (error) {
+        console.error('Error deleting preference:', error);
+        Swal.fire('Error', 'There was an issue deleting the preference.', 'error');
+      } else {
+        fetchPreferences();
+        Swal.fire('Deleted!', 'The preference has been deleted.', 'success');
+      }
     }
   };
 

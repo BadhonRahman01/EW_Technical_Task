@@ -18,3 +18,12 @@ export const getPreferences = () => apiClient.get('/preferences');
 export const addPreference = (data) => apiClient.post('/preferences', data);
 export const updatePreference = (id, data) => apiClient.patch(`/preferences?id=eq.${id}`, data);
 export const deletePreference = (id) => apiClient.delete(`/preferences?id=eq.${id}`);
+
+// Subscriptions
+export const getSubscriptions = () => apiClient.get('/subscriptions');
+export const addSubscription = (data) => apiClient.post('/subscriptions', data);
+export const updateSubscription = (id, data) => apiClient.patch(`/subscriptions?id=eq.${id}`, data);
+export const deleteSubscription = (id) => apiClient.delete(`/subscriptions?id=eq.${id}`);
+
+// Users
+export const getUsers = () => apiClient.get('/users');

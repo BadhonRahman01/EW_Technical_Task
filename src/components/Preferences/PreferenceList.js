@@ -10,6 +10,7 @@ const PreferenceList = ({ preferences, onEdit, onDelete }) => {
                     <th>#</th>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Description</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -19,6 +20,7 @@ const PreferenceList = ({ preferences, onEdit, onDelete }) => {
                     <td>{preferences.indexOf(preference) + 1}</td>
                     <td>{preference.id}</td>
                     <td>{preference.name}</td>
+                    <td>{preference.description}</td>
                     <td>
                     <button class="btn btn-outline-warning m-2" onClick={() => onEdit(preference)}>Edit</button>
                     <button class="btn btn-outline-danger m-2" onClick={() => onDelete(preference.id)}>Delete</button>
@@ -27,15 +29,6 @@ const PreferenceList = ({ preferences, onEdit, onDelete }) => {
                 ))}
             </tbody>
         </table>
-        {/* <ul>
-            {preferences.map((preference) => (
-            <li key={preference.id}>
-                {preference.name}
-                <button onClick={() => onEdit(preference)}>Edit</button>
-                <button onClick={() => onDelete(preference.id)}>Delete</button>
-            </li>
-            ))}
-        </ul> */}
         </div>
     );
     }
