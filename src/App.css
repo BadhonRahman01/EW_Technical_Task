@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 .App {
   text-align: center;
@@ -16,13 +16,13 @@ header {
   font-family: "Montserrat", sans-serif;
 }
 
-h2{
+h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #43bb85;
 }
-h3{
+h3 {
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -30,18 +30,18 @@ h3{
   padding-top: 3rem;
   text-align: center;
 }
-p{
+p {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   margin-bottom: 1rem;
   color: black;
 }
-.link{
+.link {
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
   color: white;
 }
-.ewbtn{
+.ewbtn {
   background-color: #43bb85;
   color: white;
   border: none;
@@ -55,7 +55,7 @@ p{
   transition-property: transform;
   transition-timing-function: ease-out;
 }
-.ewbtn:hover{
+.ewbtn:hover {
   background-color: #3a9e73;
   transform: scaleX(1.1);
   transition-duration: 0.3s;

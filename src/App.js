@@ -9,11 +9,11 @@ import './App.css';
 
 
 const App = () => (
-  
+
   <Router>
-        <header>
-          <Link class="link" to="/"><h1>Easy Waste Oy Test App</h1></Link>
-      
+    <header>
+      <Link class="link" to="/"><h1>Easy Waste Oy Test App</h1></Link>
+
     </header>
     <Routes>
       <Route path="/" element={<HomePage />} />

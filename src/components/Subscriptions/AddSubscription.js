@@ -54,50 +54,50 @@ const AddSubscription = ({ onAdd }) => {
   return (
     <div className="container mt-4">
       <form onSubmit={handleSubmit}>
-        <div class="row"> 
-        <h2>Add Subscription</h2>
-              <div class="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="preferenceSelect">Preference</label>
-                  <select 
-                    className="form-control" 
-                    id="preferenceSelect" 
-                    value={preferenceId} 
-                    onChange={(e) => setPreferenceId(e.target.value)} 
-                    required
-                  >
-                    <option value="">Select Preference</option>
-                    {preferences.map(preference => (
-                      <option key={preference.id} value={preference.id}>{preference.name}</option>
-                    ))}
-                  </select>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div className="form-group">
-                  <label htmlFor="userSelect">User</label>
-                  <select 
-                    className="form-control" 
-                    id="userSelect" 
-                    value={userId} 
-                    onChange={(e) => setUserId(e.target.value)} 
-                    required
-                  >
-                    <option value="">Select User</option>
-                    {users.map(user => (
-                      <option key={user.id} value={user.id}>{user.name}</option>
-                    ))}
-                  </select>
-                </div>
-                </div>
-        </div>  
+        <div class="row mb-2">
+          <h2>Add Subscription</h2>
+          <div class="col-md-6">
+            <div className="form-group">
+              <label htmlFor="preferenceSelect">Preference</label>
+              <select
+                className="form-control"
+                id="preferenceSelect"
+                value={preferenceId}
+                onChange={(e) => setPreferenceId(e.target.value)}
+                required
+              >
+                <option value="">Select Preference</option>
+                {preferences.map(preference => (
+                  <option key={preference.id} value={preference.id}>{preference.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div className="form-group">
+              <label htmlFor="userSelect">User</label>
+              <select
+                className="form-control"
+                id="userSelect"
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)}
+                required
+              >
+                <option value="">Select User</option>
+                {users.map(user => (
+                  <option key={user.id} value={user.id}>{user.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
         <div className="form-check">
-          <input 
-            type="checkbox" 
-            className="form-check-input" 
-            id="enabledCheck" 
-            checked={enabled} 
-            onChange={(e) => setEnabled(e.target.checked)} 
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="enabledCheck"
+            checked={enabled}
+            onChange={(e) => setEnabled(e.target.checked)}
           />
           <label className="form-check-label" htmlFor="enabledCheck">Enabled</label>
         </div>

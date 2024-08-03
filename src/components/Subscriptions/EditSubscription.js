@@ -13,6 +13,12 @@ const EditSubscription = ({ subscription, onEdit, onCancel }) => {
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    setPreferenceId(subscription.preference_id);
+    setEnabled(subscription.enabled);
+    setUserId(subscription.user_id);
+  }, [subscription]);
+
   const fetchPreferences = async () => {
     const { data, error } = await getPreferences();
     if (error) {
@@ -55,46 +61,56 @@ const EditSubscription = ({ subscription, onEdit, onCancel }) => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="preferenceSelect">Preference</label>
-          <select 
-            className="form-control" 
-            id="preferenceSelect" 
-            value={preferenceId} 
-            onChange={(e) => setPreferenceId(e.target.value)} 
+          <select
+            className="form-control"
+            id="preferenceSelect"
+            value={preferenceId}
+            onChange={(e) => setPreferenceId(e.target.value)}
             required
           >
             <option value="">Select Preference</option>
-            {preferences.map(preference => (
-              <option key={preference.id} value={preference.id}>{preference.name}</option>
+            {preferences.map((preference) => (
+              <option key={preference.id} value={preference.id}>
+                {preference.name}
+              </option>
             ))}
           </select>
         </div>
         <div className="form-group">
           <label htmlFor="userSelect">User</label>
-          <select 
-            className="form-control" 
-            id="userSelect" 
-            value={userId} 
-            onChange={(e) => setUserId(e.target.value)} 
+          <select
+            className="form-control"
+            id="userSelect"
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
             required
           >
             <option value="">Select User</option>
-            {users.map(user => (
-              <option key={user.id} value={user.id}>{user.name}</option>
+            {users.map((user) => (
+              <option key={user.id} value={user.id}>
+                {user.name}
+              </option>
             ))}
           </select>
         </div>
         <div className="form-check">
-          <input 
-            type="checkbox" 
-            className="form-check-input" 
-            id="enabledCheck" 
-            checked={enabled} 
-            onChange={(e) => setEnabled(e.target.checked)} 
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="enabledCheck"
+            checked={enabled}
+            onChange={(e) => setEnabled(e.target.checked)}
           />
-          <label className="form-check-label" htmlFor="enabledCheck">Enabled</label>
+          <label className="form-check-label" htmlFor="enabledCheck">
+            Enabled
+          </label>
         </div>
-        <button type="submit" className="btn btn-primary">Update Subscription</button>
-        <button type="button" className="btn btn-danger m-2" onClick={onCancel}>Cancel</button>
+        <button type="submit" className="btn btn-primary">
+          Update Subscription
+        </button>
+        <button type="button" className="btn btn-danger m-2" onClick={onCancel}>
+          Cancel
+        </button>
       </form>
     </div>
   );

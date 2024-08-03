@@ -12,7 +12,7 @@ const SubscriptionList = ({ subscriptions, users, preferences, onEdit, onDelete 
   };
 
   return (
-    <div className="container">
+    <div className="container mt-2">
       <h2>Subscription List</h2>
       <table className="table table-bordered">
         <thead>
