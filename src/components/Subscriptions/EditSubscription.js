@@ -51,7 +51,7 @@ const EditSubscription = ({ subscription, onEdit, onCancel }) => {
 
   return (
     <div className="container mt-4">
-      <h5 className="display-5">Edit Subscription (ID={subscription.id})</h5>
+      <h2>Edit Subscription (ID={subscription.id})</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="preferenceSelect">Preference</label>

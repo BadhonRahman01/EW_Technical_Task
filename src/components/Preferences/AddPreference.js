@@ -13,7 +13,7 @@ const AddPreference = ({ onAdd }) => {
   return (
     <form onSubmit={handleSubmit}>
         <div class="container">
-            <h5 class="display-5">Add Preference</h5>
+            <h2>Add Preference</h2>
             <label for="name">Name:</label>
             <input  class="form-control my-2"
                 type="text" 

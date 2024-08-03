@@ -55,7 +55,7 @@ const AddSubscription = ({ onAdd }) => {
     <div className="container mt-4">
       <form onSubmit={handleSubmit}>
         <div class="row"> 
-        <h5 class="display-5">Add Subscription</h5>
+        <h2>Add Subscription</h2>
               <div class="col-md-6">
                 <div className="form-group">
                   <label htmlFor="preferenceSelect">Preference</label>

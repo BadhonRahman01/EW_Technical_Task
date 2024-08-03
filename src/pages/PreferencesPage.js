@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 import PreferenceList from '../components/Preferences/PreferenceList';
 import AddPreference from '../components/Preferences/AddPreference';
 import EditPreference from '../components/Preferences/EditPreference';
@@ -8,6 +9,7 @@ import { getPreferences, addPreference, updatePreference, deletePreference } fro
 const PreferencesPage = () => {
   const [preferences, setPreferences] = useState([]);
   const [editingPreference, setEditingPreference] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     fetchPreferences(); // Fetch preferences on component mount
@@ -73,7 +75,7 @@ const PreferencesPage = () => {
 
   return (
     <div>
-      <h1>Preferences</h1>
+      <h6>{`EasyWasteOyTestApp${location.pathname}`}</h6>
       {editingPreference ? (
         <EditPreference
           preference={editingPreference}

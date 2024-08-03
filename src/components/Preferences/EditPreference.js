@@ -12,7 +12,7 @@ const EditPreference = ({ preference, onEdit, onCancel }) => {
   return (
     <form onSubmit={handleSubmit}>
         <div class="container">
-            <h5 class="display-5">Edit Preference (ID={preference.id})</h5>
+            <h2>Edit Preference (ID={preference.id})</h2>
             <label for="name">Name:</label>
             <input class="form-control my-2"
                 type="text" 

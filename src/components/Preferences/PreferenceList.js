@@ -3,7 +3,7 @@ import React from "react";
 const PreferenceList = ({ preferences, onEdit, onDelete }) => {
     return (
         <div class="container">
-        <h5 class="display-5">Preference List</h5>
+        <h2>Preference List</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
