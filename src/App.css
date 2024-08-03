@@ -20,7 +20,47 @@ h2{
   font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #43bb85;;
+  color: #43bb85;
+}
+h3{
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #43bb85;
+  padding-top: 3rem;
+  text-align: center;
+}
+p{
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: black;
+}
+.link{
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  color: white;
+}
+.ewbtn{
+  background-color: #43bb85;
+  color: white;
+  border: none;
+  padding: 1rem 1rem;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 4px;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+}
+.ewbtn:hover{
+  background-color: #3a9e73;
+  transform: scaleX(1.1);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

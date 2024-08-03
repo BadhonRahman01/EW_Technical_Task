@@ -12,7 +12,7 @@ const App = () => (
   
   <Router>
         <header>
-          <Link to="/"><h1>Easy Waste Oy Test App</h1></Link>
+          <Link class="link" to="/"><h1>Easy Waste Oy Test App</h1></Link>
       
     </header>
     <Routes>
