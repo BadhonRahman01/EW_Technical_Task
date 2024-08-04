@@ -1,5 +1,6 @@
 import React from "react";
 
+// Define the PreferenceList component
 const PreferenceList = ({ preferences, onEdit, onDelete }) => {
     return (
         <div class="container mt-2">

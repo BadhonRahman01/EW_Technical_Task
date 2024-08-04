@@ -4,30 +4,20 @@ import { getUsers } from '../../api/masterClient';
 const UserList = () => {
     const [users, setUsers] = useState([]);
 
+    // useEffect hook to fetch users when the component mounts
     useEffect(() => {
         fetchUsers();
     }, []);
 
+    // Function to fetch users from the API
     const fetchUsers = async () => {
         const response = await getUsers();
         setUsers(response.data);
     };
 
-
-
     return (
         <div>
             <h2>Users List</h2>
-            {/* <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            {user.name} 
-            <button >Delete</button>
-          </li>
-        ))}
-      </ul> */}
-
-
             <table class="table table-bordered">
                 <thead>
                     <tr>

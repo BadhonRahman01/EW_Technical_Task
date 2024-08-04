@@ -7,22 +7,24 @@ import EditSubscription from '../components/Subscriptions/EditSubscription';
 import { getSubscriptions, deleteSubscription, getUsers, getPreferences, addSubscription, updateSubscription } from '../api/masterClient';
 
 const SubscriptionPage = () => {
+  // State variables to manage the subscriptions list, users list, preferences list, and the subscription being edited
   const [subscriptions, setSubscriptions] = useState([]);
   const [users, setUsers] = useState([]);
   const [preferences, setPreferences] = useState([]);
   const [editingSubscription, setEditingSubscription] = useState(null);
   const location = useLocation();
 
+  // useEffect hook to fetch subscriptions, users, and preferences when the component mounts
   const fetchAllData = useCallback(async () => {
     await fetchSubscriptions();
     await fetchUsers();
     await fetchPreferences();
   }, []);
-
+  // useEffect hook to fetch subscriptions, users, and preferences when the component mounts
   useEffect(() => {
     fetchAllData();
   }, [fetchAllData]);
-
+  // Function to fetch subscriptions from the API
   const fetchSubscriptions = async () => {
     const { data, error } = await getSubscriptions();
     if (error) {
@@ -31,7 +33,7 @@ const SubscriptionPage = () => {
       setSubscriptions(data);
     }
   };
-
+  // Function to fetch users from the API
   const fetchUsers = async () => {
     const { data, error } = await getUsers();
     if (error) {
@@ -40,7 +42,7 @@ const SubscriptionPage = () => {
       setUsers(data);
     }
   };
-
+  // Function to fetch preferences from the API
   const fetchPreferences = async () => {
     const { data, error } = await getPreferences();
     if (error) {
@@ -49,7 +51,7 @@ const SubscriptionPage = () => {
       setPreferences(data);
     }
   };
-
+  // Function to add a new subscription
   const handleAdd = async (newSubscription) => {
     try {
       await addSubscription(newSubscription);
@@ -58,7 +60,7 @@ const SubscriptionPage = () => {
       console.error('Error adding subscription:', error);
     }
   };
-
+  // Function to update a subscription
   const handleEdit = async (id, updatedData) => {
     try {
       await updateSubscription(id, updatedData);
@@ -68,7 +70,7 @@ const SubscriptionPage = () => {
       console.error('Error updating subscription:', error);
     }
   };
-
+  // Function to delete a subscription
   const handleDelete = async (id) => {
     const result = await Swal.fire({
       title: 'Are you sure?',
@@ -78,7 +80,7 @@ const SubscriptionPage = () => {
       confirmButtonText: 'Yes, delete it!',
       cancelButtonText: 'No, keep it',
     });
-
+    // Check if the user confirmed the deletion
     if (result.isConfirmed) {
       const { error } = await deleteSubscription(id);
       if (error) {
@@ -90,11 +92,11 @@ const SubscriptionPage = () => {
       }
     }
   };
-
+  // Function to start editing a subscription
   const startEditing = (subscription) => {
     setEditingSubscription(subscription);
   };
-
+  // Function to stop editing a subscription
   const stopEditing = () => {
     setEditingSubscription(null);
   };

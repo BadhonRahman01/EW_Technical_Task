@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
 const AddPreference = ({ onAdd }) => {
+  // State variables to manage the input values for name and description
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+
+  // Function to handle the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd({ name, description });
+    onAdd({ name, description });// Call the onAdd function passed as a prop with the new preference data
     setName(''); // Clear input after submission
     setDescription(''); // Clear input after submission
   };

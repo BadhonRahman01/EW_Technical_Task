@@ -11,8 +11,6 @@ const apiClient = axios.create({
   },
 });
 
-
-
 // Preferences
 export const getPreferences = () => apiClient.get('/preferences');
 export const addPreference = (data) => apiClient.post('/preferences', data);

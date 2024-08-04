@@ -1,12 +1,14 @@
 import React from 'react';
 
 const SubscriptionList = ({ subscriptions, users, preferences, onEdit, onDelete }) => {
+  // Function to get the user name based on the user ID
   const getUserName = (userId) => {
     const user = users.find(user => user.id === userId);
     return user ? user.name : 'Unknown User';
   };
 
   const getPreferenceName = (preferenceId) => {
+    // Find the preference with the given ID and return its name
     const preference = preferences.find(preference => preference.id === preferenceId);
     return preference ? preference.name : 'Unknown Preference';
   };

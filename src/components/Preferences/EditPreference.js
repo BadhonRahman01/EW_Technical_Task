@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
 const EditPreference = ({ preference, onEdit, onCancel }) => {
+  // State variables to manage the input values for name and description
   const [name, setName] = useState(preference.name);
   const [description, setDescription] = useState(preference.description);
 
+  // useEffect hook to update the state when the preference prop changes
   useEffect(() => {
     setName(preference.name);
     setDescription(preference.description);
   }, [preference]);
 
+  // Function to handle the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    onEdit({ name, description });
+    onEdit({ name, description }); // Call the onEdit function passed as a prop with the updated preference data
   };
 
   return (

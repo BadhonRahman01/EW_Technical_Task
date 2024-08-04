@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { addSubscription, getPreferences, getUsers } from '../../api/masterClient';
 
 const AddSubscription = ({ onAdd }) => {
+  // State variables to manage the input values for preferenceId, enabled, and userId
   const [preferenceId, setPreferenceId] = useState('');
   const [enabled, setEnabled] = useState(false);
   const [userId, setUserId] = useState('');
   const [preferences, setPreferences] = useState([]);
   const [users, setUsers] = useState([]);
 
+  // useEffect hook to fetch preferences and users when the component mounts
   useEffect(() => {
     fetchPreferences();
     fetchUsers();
   }, []);
 
+  // Function to fetch preferences from the API
   const fetchPreferences = async () => {
     const { data, error } = await getPreferences();
     if (error) {
@@ -22,6 +25,7 @@ const AddSubscription = ({ onAdd }) => {
     }
   };
 
+  // Function to fetch users from the API
   const fetchUsers = async () => {
     const { data, error } = await getUsers();
     if (error) {
@@ -31,6 +35,7 @@ const AddSubscription = ({ onAdd }) => {
     }
   };
 
+  // Function to handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newSubscription = {
@@ -38,6 +43,7 @@ const AddSubscription = ({ onAdd }) => {
       enabled,
       user_id: userId,
     };
+    // Call the addSubscription function from the API client
     try {
       await addSubscription(newSubscription);
       if (onAdd) {

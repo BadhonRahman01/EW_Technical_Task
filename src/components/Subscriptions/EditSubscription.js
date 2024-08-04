@@ -2,23 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { updateSubscription, getPreferences, getUsers } from '../../api/masterClient';
 
 const EditSubscription = ({ subscription, onEdit, onCancel }) => {
+  // State variables to manage the input values for preferenceId, enabled, and userId
   const [preferenceId, setPreferenceId] = useState(subscription.preference_id);
   const [enabled, setEnabled] = useState(subscription.enabled);
   const [userId, setUserId] = useState(subscription.user_id);
   const [preferences, setPreferences] = useState([]);
   const [users, setUsers] = useState([]);
 
+  // useEffect hook to fetch preferences and users when the component mounts
   useEffect(() => {
     fetchPreferences();
     fetchUsers();
   }, []);
 
+  // useEffect hook to update the state when the subscription prop changes
   useEffect(() => {
     setPreferenceId(subscription.preference_id);
     setEnabled(subscription.enabled);
     setUserId(subscription.user_id);
   }, [subscription]);
 
+  // Function to fetch preferences from the API
   const fetchPreferences = async () => {
     const { data, error } = await getPreferences();
     if (error) {
@@ -28,6 +32,7 @@ const EditSubscription = ({ subscription, onEdit, onCancel }) => {
     }
   };
 
+  // Function to fetch users from the API
   const fetchUsers = async () => {
     const { data, error } = await getUsers();
     if (error) {
@@ -37,6 +42,7 @@ const EditSubscription = ({ subscription, onEdit, onCancel }) => {
     }
   };
 
+  // Function to handle the form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     const updatedSubscription = {
